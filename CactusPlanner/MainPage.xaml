@@ -86,7 +86,7 @@
             <Label x:Name="statusLabel"
                    Grid.Row="2"
                    TextColor="#FFFFFF"
-                   Margin="25,0,25,20"
+                   Margin="30,0,30,20"
                    FontSize="Large"
                    FontFamily="Roboto"/>
 
