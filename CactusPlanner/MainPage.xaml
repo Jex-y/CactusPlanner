@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:control="clr-namespace:ProgressRingControl.Forms.Plugin;assembly=ProgressRing.Forms.Plugin"
+             mc:Ignorable="d"
+             x:Class="CactusPlanner.MainPage"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="#121212">
+
+    <NavigationPage.TitleView >
+        <Grid BackgroundColor="#FFFFFF"
+              Opacity="0.16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            
+            <ImageButton Source="settings.xml"
+                         BackgroundColor="Transparent"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="End"
+                         Clicked="OnKebabClicked"
+                         Grid.Column="2"
+                         Scale="1"/>
+        </Grid>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <!--Navigation Bar-->
+            <BoxView Color="White"
+                     Opacity="0.16"
+                     Grid.Row="0"/>
+
+            <ImageButton Source="settings.xml"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="End"
+                         BackgroundColor="Transparent"
+                         Scale="0.6"
+                         Clicked="OnKebabClicked"/>
+            
+            <!--Water indicator-->
+            
+            <BoxView Color="White"
+                     Opacity="0.08"
+                     Grid.Row="1"
+                     CornerRadius="8"
+                     Margin="20,20,20,20"/>
+
+            <control:ProgressRing RingThickness="20" 
+                                  Progress="0"
+                                  RingBaseColor="#2b2b2b"
+                                  RingProgressColor="#32d4d7"
+                                  Scale="0.9"
+                                  Grid.Row="1"
+                                  x:Name="waterRing"
+                                  Margin="20,20,20,20"/>
+
+            <ImageButton Source="cactus.xml" 
+                         Grid.Row="1"
+                         TranslationX="-12"
+                         Scale="0.6"
+                         BackgroundColor="Transparent"
+                         Clicked="OnCactusClicked"
+                         Margin="20,20,20,20"/>
+            
+            <!--Next Watering Indicator-->
+            <BoxView Color="White"
+                     Opacity="0.08"
+                     Grid.Row="2"
+                     CornerRadius="8"
+                     Margin="20,0,20,20"/>
+            
+            <Label x:Name="statusLabel"
+                   Grid.Row="2"
+                   TextColor="#FFFFFF"
+                   Margin="25,0,25,20"
+                   FontSize="Large"
+                   FontFamily="Roboto"/>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

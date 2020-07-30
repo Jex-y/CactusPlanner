@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sv="clr-namespace:AiForms.Renderers;assembly=SettingsView"
+             mc:Ignorable="d"
+             x:Class="CactusPlanner.SettingsPage"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="#121212">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="White"
+                     Opacity="0.16"
+                     Grid.Row="0"/>
+
+            <ImageButton Source="back.xml"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="StartAndExpand"
+                         BackgroundColor="Transparent"
+                         Scale="2"
+                         TranslationX="16"
+                         Clicked="onBackClicked"/>
+
+            <sv:SettingsView HasUnevenRows="True"
+                             Grid.Row="1"
+                             CellValueTextColor="#FFFFFF"
+                             CellTitleColor="#FFFFFF"
+                             CellAccentColor="#BB86FC"
+                             HeaderTextColor="#FFFFFF">
+                <sv:Section Title="Cactus">
+                    <sv:EntryCell Title="Name"
+                                  x:Name="nameEntry"
+                                  Completed="onNameEntryCompleted"/>
+
+                    <sv:DatePickerCell Title="Last Watered"
+                                       x:Name="lastWateredEntry"
+                                       PropertyChanged="onLastWateredCompleted"/>
+
+                    <sv:DatePickerCell Title="Last Turned"
+                                       x:Name="lastTurnedEntry"
+                                       PropertyChanged="onLastTurnedCompleted"/>
+
+                    <sv:TimePickerCell Title="Reminder Time"
+                                       x:Name="remiderTime"
+                                       PropertyChanged="onReminderTimeCompleted"/>
+                </sv:Section>
+                <sv:Section Title="Seasons">
+                    <sv:DatePickerCell Title="Start of watering Season"
+                                       x:Name="wateringStart"
+                                       PropertyChanged="onWateringStartCompleted"/>
+
+                    <sv:DatePickerCell Title="End of watering Season"
+                                       x:Name="wateringEnd"
+                                       PropertyChanged="onWateringEndCompleted"/>
+                </sv:Section>
+                  
+                <sv:Section Title="About">
+                    <sv:LabelCell Title="Made by Edward Jex"/>
+                </sv:Section>
+            </sv:SettingsView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
